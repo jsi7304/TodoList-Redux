@@ -1,3 +1,32 @@
+```bash
+📦src
+ ┣ 📂components
+ ┃ ┣ 📜Detail.jsx
+ ┃ ┣ 📜Form.jsx
+ ┃ ┣ 📜Header.jsx
+ ┃ ┣ 📜Layout.jsx
+ ┃ ┣ 📜List.jsx
+ ┃ ┗ 📜Todo.jsx
+ ┣ 📂pages
+ ┃ ┣ 📜TodoDetail.jsx
+ ┃ ┗ 📜TodoList.jsx
+ ┣ 📂redux
+ ┃ ┣ 📂config
+ ┃ ┃ ┗ 📜configStore.js
+ ┃ ┗ 📂modules
+ ┃ ┃ ┗ 📜todos.js
+ ┣ 📂shared
+ ┃ ┗ 📜Router.js
+ ┣ 📜App.css
+ ┣ 📜App.js
+ ┣ 📜App.test.js
+ ┣ 📜index.css
+ ┣ 📜index.js
+ ┣ 📜logo.svg
+ ┣ 📜reportWebVitals.js
+ ┗ 📜setupTests.js
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
