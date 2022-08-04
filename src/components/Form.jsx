@@ -1,8 +1,9 @@
-import React, { useState, useRef } from "react"
+import React, { useState } from "react"
 import {useDispatch} from "react-redux"
 import styled from "styled-components"
 import { addTodo } from "../redux/modules/todos"
 
+let nextId=0; 
 const Form = () => {
 
     const [title, setTitle] = useState('')
@@ -17,24 +18,27 @@ const Form = () => {
     const handleInputContent = (e) => {
         setContent(e.target.value)
     }
-
-    const nextId = useRef(0)
     
     const onSubmitHandler = (e) => {
         e.preventDefault();
-        
-        if (title === '' || content === '') return;
-        
-        dispatch(
+        if(title===''&& content===''){
+            alert('제목과 내용을 모두 입력하세요.');
+        } else if (title===''){
+            alert('제목을 입력하세요.');
+        }else if(content===''){
+            alert('내용을 입력하세요.');
+        }else if(title!==''&&content !==''){
+         dispatch(
             addTodo({
-                id: (nextId.current += 1),
+                id:nextId +=1,
                 title,
                 content,
-                isDone : false,
+                isDone:false,
             })
-        );
-        setTitle('')
-        setContent('')
+         );
+         setTitle('');
+         setContent('');      
+        }
     };
 
     return (

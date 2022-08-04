@@ -3,35 +3,32 @@ import { useSelector } from "react-redux"
 import styled from "styled-components";
 import Todo from './Todo'
 
-const List = ({ handleDelete, handleDone }) => {
+const List = () => {
     const todos = useSelector((state) => state.todos)
-
 
     return (
         <StListContainer>
-            <StTitle><h1>working.. 🔥</h1></StTitle>
+            <StTitle>working.. 🔥</StTitle>
             <StListCard>
                 {todos.map((todo) =>
                     todo.isDone === false ? (
                             <Todo
                                 todo={todo}
-                                key={todo.id}
-                                handleDelete={handleDelete}
-                                handleDone={handleDone}
+                                /*불필요한 리렌더링을 방지하기 위해서는
+                                각 자식 컴포넌트마다 독립적인 key값을 넣어줘야 한다.*/  
+                                key={todo.id} 
                             />
                     ) : null
                 )}
 
             </StListCard>
-            <StTitle><h1>Done..! 🎉</h1></StTitle>
+            <StTitle>Done..! 🎉</StTitle>
             <StListCard>
                 {todos.map((todo) =>
                     todo.isDone === true ? (
                             <Todo
                                 todo={todo}
                                 key={todo.id}
-                                handleDelete={handleDelete}
-                                handleDone={handleDone}
                             />
                     ) : null
                 )}
@@ -52,7 +49,7 @@ const StListContainer = styled.div`
     border-radius: 12px; */
 `
 
-const StTitle = styled.div`
+const StTitle = styled.h1`
     font-weight: bold;
     margin: 20px;
 `

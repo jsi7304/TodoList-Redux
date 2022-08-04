@@ -13,13 +13,17 @@ const Todo = ({ todo }) => {
     return (
         <StTodoContainer>
             <Link to={`/detail/${todo.id}`}><Linkdetail>상세보기</Linkdetail></Link>
+            {/*${todo.id} => todo의 id와 동일한 페이지 넘버로 이동하기 위함 */}
             {/* <p onClick={() => navigate(`/detail/${todo.id}`)}>상세보기</p> */}
             <StTodoTitle>{todo.title}</StTodoTitle>
             <StTodoContent>{todo.content}</StTodoContent>
             <StTodobuttonsContainer>
                 <StTodobuttons
                     onClick={() => {
-                        dispatch(deleteTodo(todo.id))
+                        if(window.confirm('삭제하시겠습니까?')){
+                            dispatch(deleteTodo(todo.id))
+                        }
+                        
                     }}>삭제하기</StTodobuttons>
                 <StTodobuttons
                     onClick={() => {

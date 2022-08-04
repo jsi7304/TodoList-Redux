@@ -10,9 +10,10 @@ const TodoDetail = () => {
 
     const todos = useSelector((state) => state.todos);
     const detailTodo = todos.find((todo) => parseInt(todo.id) === parseInt(param.id))
+    /*todo.id와 param.id가 같은 것만 추출하는 이유=> page1에서는 id1이 나와야 하니까
+    연결해주는 것.  연결해주지 않으면 page1에서는 어떤걸 뿌려야할지 모르기 때문에 아무것도 뜨지않음*/
     // const detailTodo = todos.find((val) => Number(val.id) === Number(param.id))
     // console.log(detailTodo)
-
 
     return (
       <StBackground>
@@ -20,7 +21,7 @@ const TodoDetail = () => {
             <StDetailTop>
                 <StTodoId>ID : {detailTodo.id} </StTodoId>
                 <StButton
-                    onClick={() => navigate(-1)}
+                    onClick={() => navigate(-1)} //navigate(-1)=> 뒤로가기 
                 >이전으로</StButton>
             </StDetailTop>
             <StTitle>{detailTodo.title}</StTitle>
@@ -35,12 +36,12 @@ const TodoDetail = () => {
 export default TodoDetail;
 
 const StBackground = styled.div `
-
-  
+height:90vh;
+ display:flex; 
 `
 
 const StTodoDetailContainer = styled.div`
-    border: 1px solid #ddd;
+    border: 1px solid skyblue;
     width: 600px;
     height: 400px;
     margin: 25vh auto;

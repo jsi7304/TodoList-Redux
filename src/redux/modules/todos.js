@@ -37,6 +37,7 @@ const todos = (state = initialState, action) => {
 
             const doneTodo = state.map((todo) =>
                 todo.id === action.id ? { ...todo, isDone: !todo.isDone } : todo)
+                //중복된 key를 가지고 있으면 뒤에 오는 객체의 value로 덮어 씌워진다.
             return doneTodo;
         default:
             return state;
